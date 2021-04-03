@@ -10,9 +10,11 @@ namespace Platformer.Mechanics
 
         private Vector2 respawnPos;
 
+        public AudioClip checkpointAudio;
+
         private void Start()
         {
-            //Adjusts position of the spawn relative to the checkpoint object
+            //Adjusts position of the spawn relative to the checkpoint object in the scene
             respawnPos = this.gameObject.transform.position - new Vector3(0f, 0.4f);
         }
 
@@ -23,6 +25,10 @@ namespace Platformer.Mechanics
                 isActive = true;
 
                 col.gameObject.GetComponent<PlayerController>().respawnPoint = respawnPos;
+
+                GetComponent<SpriteRenderer>().color = Color.white;
+
+                GetComponent<AudioSource>().PlayOneShot(checkpointAudio);
             }
         }
     }
