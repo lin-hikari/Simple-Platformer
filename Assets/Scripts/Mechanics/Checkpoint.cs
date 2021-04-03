@@ -6,16 +6,24 @@ namespace Platformer.Mechanics
 {
     public class Checkpoint : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private bool isActive = false;
 
+        private Vector2 respawnPos;
+
+        private void Start()
+        {
+            //Adjusts position of the spawn relative to the checkpoint object
+            respawnPos = this.gameObject.transform.position - new Vector3(0f, 0.4f);
         }
 
-        // Update is called once per frame
-        void Update()
+        void OnTriggerEnter2D(Collider2D col)
         {
+            if((col.tag == "Player")&&(!isActive))
+            {
+                isActive = true;
 
+                col.gameObject.GetComponent<PlayerController>().respawnPoint = respawnPos;
+            }
         }
     }
 }
