@@ -42,6 +42,8 @@ namespace Platformer.Mechanics
 
         public Bounds Bounds => collider2d.bounds;
 
+        public Vector2 respawnPoint;
+
         void Awake()
         {
             health = GetComponent<Health>();
@@ -49,6 +51,11 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+        }
+
+        new void Start()
+        {
+            respawnPoint = model.spawnPoint.transform.position;
         }
 
         protected override void Update()
