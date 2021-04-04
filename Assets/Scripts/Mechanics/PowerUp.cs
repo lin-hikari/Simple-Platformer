@@ -31,7 +31,11 @@ namespace Platformer.Mechanics
                 }
             }
 
-            gameObject.SetActive(false);
+            GetComponent<AudioSource>().PlayOneShot(powerUpAudio);
+
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            GetComponent<CircleCollider2D>().enabled = false;
         }
 
         public enum PowerUpType
