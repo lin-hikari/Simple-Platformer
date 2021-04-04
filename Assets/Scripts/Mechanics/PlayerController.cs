@@ -44,6 +44,8 @@ namespace Platformer.Mechanics
 
         public Vector2 respawnPoint;
 
+        public GameObject shield;
+
         void Awake()
         {
             health = GetComponent<Health>();
