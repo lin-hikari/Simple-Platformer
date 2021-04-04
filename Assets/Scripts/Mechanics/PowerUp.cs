@@ -14,16 +14,24 @@ namespace Platformer.Mechanics
         {
             if (col.tag == "Player")
             {
+                PlayerController pc = col.gameObject.GetComponent<PlayerController>();
+
                 switch(powerType)
                 {
                     case PowerUpType.SuperJump:
-                        return;
+                        pc.jumpTakeOffSpeed = 10;
+                        break;
                     case PowerUpType.SuperSpeed:
-                        return;
+                        pc.maxSpeed = 5;
+                        break;
                     case PowerUpType.Shield:
-                        return;
+                        pc.shield.SetActive(true);
+                        col.GetComponent<SpriteRenderer>().color = Color.magenta;
+                        break;
                 }
             }
+
+            gameObject.SetActive(false);
         }
 
         public enum PowerUpType

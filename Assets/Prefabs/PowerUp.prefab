@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d8e4c03bb176d40aaa44965fd6f443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpAudio: {fileID: 8300000, guid: bf527d825758e5b4ca7b69f5a02d9a56, type: 3}
+  powerType: 0
 --- !u!212 &5535336010534156356
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,7 +108,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
